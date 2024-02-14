@@ -1,0 +1,21 @@
+// Object for working with collections
+// by: remreider
+
+// The items contained in the collection.
+var items = []
+
+// Create a collection from the given value.
+func collect(items)
+    var Collection = new Custom/Collection
+    Collection.items = items
+    return Collection
+
+// Create a collection with the given range.
+func range(from, to)
+    for i = from..to
+        items.Add(i)
+    return collect(items)
+
+// Get all of the items in the collection.
+func all()
+    return items
