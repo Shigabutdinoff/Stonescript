@@ -19,3 +19,14 @@ func range(from, to)
 // Get all of the items in the collection.
 func all()
     return items
+
+// Get the average value of a given key.
+func avg()
+    var count = items.Count()
+    ?count > 0
+        var sum = 0
+        for j = 1..count
+          sum = sum + j
+        return sum / count
+    :
+        return 0
