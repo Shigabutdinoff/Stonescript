@@ -1,7 +1,7 @@
 // Object for working with collections
 // by: remreider
 
-var Standard = new Custom/Standard
+var Standard = new shigabutdinoff/Standard
 
 // The items contained in the collection.
 var items = []
