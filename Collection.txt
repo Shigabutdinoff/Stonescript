@@ -8,10 +8,14 @@ var items = []
 
 // Create a collection from the given value.
 func collect(items)
-    var Collection = new Custom/Collection
+    var Collection = new shigabutdinoff/Collection
     ?Standard.is_array(items)
         Collection.items = items
         return Collection
+    :?items = "shigabutdinoff/Collection"
+        ?Standard.is_array(items.items)
+            Collection.items = items.items
+            return Collection
     :
         // TODO: Exception
         return null
