@@ -13,9 +13,7 @@ func collect(items)
         Collection.items = items
         return Collection
     :?items = "shigabutdinoff/Collection"
-        ?Standard.is_array(items.items)
-            Collection.items = items.items
-            return Collection
+        return Collection.collect(items.items)
     :
         // TODO: Exception
         return null
