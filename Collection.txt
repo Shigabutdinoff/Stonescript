@@ -11,7 +11,10 @@ func collect(items)
     var Collection = new Custom/Collection
     ?Standard.is_array(items)
         Collection.items = items
-    return Collection
+        return Collection
+    :
+        // TODO: Exception
+        return null
 
 // Create a collection with the given range.
 func range(from, to)
@@ -20,6 +23,8 @@ func range(from, to)
 // Get all of the items in the collection.
 func all()
     return items
+
+// TODO: LazyCollection
 
 // Get the average value of a given key.
 func avg()
