@@ -1,6 +1,8 @@
 // Object for working with collections
 // by: remreider
 
+var Standard = new Custom/Standard
+
 // The items contained in the collection.
 var items = []
 
@@ -12,9 +14,7 @@ func collect(items)
 
 // Create a collection with the given range.
 func range(from, to)
-    for i = from..to
-        items.Add(i)
-    return collect(items)
+    return collect(Standard.range(from, to))
 
 // Get all of the items in the collection.
 func all()
@@ -25,7 +25,7 @@ func avg()
     var count = items.Count()
     ?count > 0
         var sum = 0
-        for j = 0..count
+        for j = 0..(count - 1)
           sum = sum + items[j]
         return sum / count
     :

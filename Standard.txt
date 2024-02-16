@@ -1,0 +1,5 @@
+func range(from, to)
+    var items = []
+    for i = from..to
+        items.Add(i)
+    return items
