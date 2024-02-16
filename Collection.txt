@@ -1,5 +1,5 @@
 // Object for working with collections
-// by: remreider
+// by: shigabutdinoff
 
 var Standard = new shigabutdinoff/Standard
 
