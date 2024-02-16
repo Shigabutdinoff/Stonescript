@@ -9,7 +9,8 @@ var items = []
 // Create a collection from the given value.
 func collect(items)
     var Collection = new Custom/Collection
-    Collection.items = items
+    ?Standard.is_array(items)
+        Collection.items = items
     return Collection
 
 // Create a collection with the given range.

@@ -1,5 +1,8 @@
-func range(from, to)
+func is_array(value)
+    return Type(value) = array
+
+func range(start, end)
     var items = []
-    for i = from..to
+    for i = start..end
         items.Add(i)
     return items
