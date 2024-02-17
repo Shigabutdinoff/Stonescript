@@ -2,6 +2,7 @@
 // by: shigabutdinoff
 
 var Standard = new shigabutdinoff/Standard
+var EnumeratesValues = new shigabutdinoff/EnumeratesValues
 
 // The items contained in the collection.
 var items = []
@@ -9,14 +10,8 @@ var items = []
 // Create a collection from the given value.
 func collect(items)
     var Collection = new shigabutdinoff/Collection
-    ?Standard.is_array(items)
-        Collection.items = items
-        return Collection
-    :?items = "shigabutdinoff/Collection"
-        return Collection.collect(items.all())
-    :
-        // TODO: Exception
-        return null
+    Collection.items = EnumeratesValues.getArrayableItems(items)
+    return Collection
 
 // Create a collection with the given range.
 func range(from, to)
