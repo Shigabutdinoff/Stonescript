@@ -1,0 +1,10 @@
+var Standard = new shigabutdinoff/Standard
+
+func getArrayableItems(items)
+    ?Standard.is_array(items)
+            return items
+    :?items = "shigabutdinoff/Collection"
+        return items.all()
+    :
+        // TODO: Exception
+        return null
