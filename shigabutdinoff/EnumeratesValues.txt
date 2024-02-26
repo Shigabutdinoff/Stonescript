@@ -1,5 +1,6 @@
 var Standard = new shigabutdinoff/Standard
 
+// Results array of items from Collection or Arrayable.
 func getArrayableItems(items)
     ?Standard.is_array(items)
             return items
@@ -7,4 +8,5 @@ func getArrayableItems(items)
         return items.all()
     :
         // TODO: Exception
-        return null
+        return "shigabutdinoff/Exception"
+

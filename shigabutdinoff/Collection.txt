@@ -3,6 +3,7 @@
 
 var Standard = new shigabutdinoff/Standard
 var EnumeratesValues = new shigabutdinoff/EnumeratesValues
+var Helpers = new shigabutdinoff/Helpers
 
 // The items contained in the collection.
 var items = []
@@ -25,11 +26,11 @@ func all()
 
 // Get the average value of a given key.
 func avg()
+    var sum = 0
+    for item : items
+        ? !Standard.is_null(item)
+            sum = sum + item
+
     var count = items.Count()
-    ?count > 0
-        var sum = 0
-        for j = 0..(count - 1)
-          sum = sum + items[j]
+    ? count
         return sum / count
-    :
-        return 0

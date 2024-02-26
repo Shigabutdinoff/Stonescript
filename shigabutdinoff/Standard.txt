@@ -1,8 +1,14 @@
+// Finds whether a variable is an array
 func is_array(value)
-    return Type(value) = array
+    return Type(value) = Type([])
 
+// Finds whether a variable is null.
+func is_null(value)
+    return Type(value) = Type(null)
+
+// Create an array containing a range of elements
 func range(start, end)
     var items = []
-    for i = start..end
-        items.Add(i)
+    for item = start..end
+        items.Add(item)
     return items
