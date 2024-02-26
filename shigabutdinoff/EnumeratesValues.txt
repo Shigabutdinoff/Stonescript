@@ -2,9 +2,9 @@ var Standard = new shigabutdinoff/Standard
 
 // Results array of items from Collection or Arrayable.
 func getArrayableItems(items)
-    ?Standard.is_array(items)
+    ? Standard.is_array(items)
             return items
-    :?items = "shigabutdinoff/Collection"
+    :? items = "shigabutdinoff/Collection"
         return items.all()
     :
         // TODO: Exception
