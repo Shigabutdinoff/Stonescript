@@ -26,16 +26,14 @@ func all()
 
 // Get the average value.
 func avg()
-    var filter = []
-    var sum = 0
+    var values = []
     for item : items
         ? !Standard.is_null(item)
-            filter.Add(item)
-            sum = sum + item
+            values.Add(item)
 
-    var count = filter.Count()
+    var count = values.Count()
     ? count
-        return sum / count
+        return EnumeratesValues.sum(values) / count
 
 // Get the median.
 func median()
@@ -58,4 +56,10 @@ func median()
     return collect([values[middle - 1], values[middle]]).avg()
 
 // Get the mode.
-func mode
+func mode()
+    ? count() = 0
+        return null
+
+// Count the number of items in the collection.
+func count()
+    return items.Count()
