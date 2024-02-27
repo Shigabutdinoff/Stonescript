@@ -24,7 +24,7 @@ func all()
 
 // TODO: LazyCollection
 
-// Get the average value of a given key.
+// Get the average value.
 func avg()
     var sum = 0
     for item : items
@@ -35,7 +35,7 @@ func avg()
     ? count
         return sum / count
 
-// Get the median of a given key.
+// Get the median.
 func median()
     var values = []
     for item : items
