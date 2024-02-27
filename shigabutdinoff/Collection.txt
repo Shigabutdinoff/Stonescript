@@ -34,3 +34,23 @@ func avg()
     var count = items.Count()
     ? count
         return sum / count
+
+// Get the median of a given key.
+func median()
+    var values = []
+    for item : items
+        ? !Standard.is_null(item)
+            values.Add(item)
+    values.Sort()
+
+    var count = values.Count()
+
+    ? count = 0
+        return null
+
+    var middle = count / 2
+
+    ? count % 2
+        return middle
+
+    return collect([values[middle - 1], values[middle]]).avg()
