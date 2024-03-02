@@ -53,17 +53,17 @@ func mode()
     ? count() = 0
         return null
 
-    var counts = []
+    var counts = collect([])
     var collection = unique()
     for each = 0 .. collection.count() - 1
-        counts.Add(0)
+        counts.items.Add(0)
 
     for item : items
         var position = collection.search(item)
         ? position
-            counts.Emplace(position, counts[position] + 1)
+            counts.put(position, counts.get(position) + 1)
 
-    var highestValue = Standard.array_values(counts).Sort()
+    var highestValue = Standard.array_values(counts.all()).Sort()
     highestValue = highestValue[highestValue.Count() - 1] // func last
 
     var sorted = []
@@ -71,7 +71,7 @@ func mode()
     for item : collection.all()
         var position = collection.search(item)
         ? position
-            ? counts[position] = highestValue
+            ? counts.get(position) = highestValue
                 sorted.Add(item)
 
     return sorted.Sort()[0]
@@ -80,6 +80,9 @@ func mode()
 func get(position)
     ? Standard.array_key_exists(position, items)
         return items[position]
+
+func put(position, value)
+    return items.Emplace(position, value)
 
 // Search the collection for a given value and return the corresponding key if successful.
 func search(value)
