@@ -82,7 +82,8 @@ func get(position)
         return items[position]
 
 func put(position, value)
-    return items.Emplace(position, value)
+    offsetSet(position, value)
+    return collect(items)
 
 // Search the collection for a given value and return the corresponding key if successful.
 func search(value)
@@ -107,3 +108,10 @@ func values()
 // Count the number of items in the collection.
 func count()
     return items.Count()
+
+// Set the item at a given offset.
+func offsetSet(position, value)
+    ? Standard.is_null(position)
+        items.Add(value)
+    :
+        items.Emplace(position, value)
