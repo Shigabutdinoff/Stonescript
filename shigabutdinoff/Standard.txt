@@ -9,12 +9,19 @@ func is_null(value)
 // Create an array containing a range of elements
 func range(from, to)
     var values = []
-    for value = from..to
+    for item = from..to
         values.Add(item)
     return values
 
-func array_values(values)
-    var array = []
-    for value : values
-        array.Add(value)
-    return array
+func array_values(array)
+    var values = []
+    for item : array
+        values.Add(value)
+    return values
+
+func array_filter(array)
+    values = []
+    for item : array
+        ? item
+            values.Add(item)
+    return values
