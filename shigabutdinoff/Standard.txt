@@ -40,7 +40,7 @@ func array_unique(array)
             values.Add(item)
     return values
 
-// Searches the array for a given value and returns the first corresponding key if successful
+// Searches the array for a given value and returns the first corresponding key if successful.
 func array_search(needle, haystack)
     var position = haystack.IndexOf(needle)
     ? position > 0
