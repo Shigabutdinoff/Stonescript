@@ -1,4 +1,4 @@
-// Finds whether a variable is an array
+// Finds whether a variable is an array.
 func is_array(value)
     return Type(value) = Type([])
 
@@ -6,19 +6,21 @@ func is_array(value)
 func is_null(value)
     return Type(value) = Type(null)
 
-// Create an array containing a range of elements
+// Create an array containing a range of elements.
 func range(from, to)
     var values = []
     for item = from..to
         values.Add(item)
     return values
 
+// Return all the values of an array.
 func array_values(array)
     var values = []
     for item : array
         values.Add(item)
     return values
 
+// All entries of input equal to false (see converting to boolean) will be removed.
 func array_filter(array)
     var values = []
     for item : array
@@ -26,5 +28,14 @@ func array_filter(array)
             values.Add(item)
     return values
 
+// Checks if the given key or index exists in the array.
 func array_key_exists(position, array)
     return position < array.Count()
+
+// Removes duplicate values from an array.
+func array_unique(array)
+    var values = []
+    for item : array
+        ? !values.Contains(item)
+            values.Add(item)
+    return values
