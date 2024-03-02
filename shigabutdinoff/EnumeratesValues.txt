@@ -7,7 +7,7 @@ func getArrayableItems(items)
     :? items = "shigabutdinoff/Collection"
         return items.all()
     :
-        // TODO: Exception
+        // TODO: Exception + Arr::collapse
         return "shigabutdinoff/Exception"
 
 // Get the sum of the given values.
