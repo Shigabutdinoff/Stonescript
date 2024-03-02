@@ -7,11 +7,11 @@ func is_null(value)
     return Type(value) = Type(null)
 
 // Create an array containing a range of elements
-func range(start, end)
-    var items = []
-    for item = start..end
-        items.Add(item)
-    return items
+func range(from, to)
+    var values = []
+    for value = from..to
+        values.Add(item)
+    return values
 
 func array_values(values)
     var array = []
