@@ -11,8 +11,8 @@ func getArrayableItems(items)
         return "shigabutdinoff/Exception"
 
 // Get the sum of the given values.
-func sum(values)
-    var sum = 0
-    for value : values
-        sum = sum + value
-    return sum
+func sum(items)
+    var result = 0
+    for item : items
+        result = result + item
+    return result
