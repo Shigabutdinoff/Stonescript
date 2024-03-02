@@ -9,7 +9,7 @@ func is_null(value)
 // Create an array containing a range of elements.
 func range(from, to)
     var values = []
-    for item = from..to
+    for item = from .. to
         values.Add(item)
     return values
 
@@ -39,3 +39,11 @@ func array_unique(array)
         ? !values.Contains(item)
             values.Add(item)
     return values
+
+// Searches the array for a given value and returns the first corresponding key if successful.
+func array_search(needle, haystack)
+    position = haystack.IndexOf(needle)
+    ? position > 0
+        return position
+    :
+        return false
