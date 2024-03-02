@@ -12,3 +12,9 @@ func range(start, end)
     for item = start..end
         items.Add(item)
     return items
+
+func array_values(values)
+    var array = []
+    for value : values
+        array.Add(value)
+    return array
