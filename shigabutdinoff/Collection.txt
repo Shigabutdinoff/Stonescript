@@ -76,16 +76,20 @@ func mode()
 
     return sorted.Sort()[0]
 
+// Get an item from the collection by key.
 func get(position)
     ? Standard.array_key_exists(position, items)
         return items[position]
 
+// Search the collection for a given value and return the corresponding key if successful.
 func search(value)
     return Standard.array_search(value, items)
 
+// Sort through each item with a callback.
 func sort()
     return collect(items.Sort())
 
+// Run a filter over each of the items.
 func filter()
     return collect(Standard.array_filter(items))
 
