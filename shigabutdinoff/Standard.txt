@@ -43,7 +43,7 @@ func array_unique(array)
 // Searches the array for a given value and returns the first corresponding key if successful.
 func array_search(needle, haystack)
     var position = haystack.IndexOf(needle)
-    ? position > 0
+    ? position > -1
         return position
     :
         return false
