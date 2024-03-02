@@ -26,24 +26,17 @@ func all()
 
 // Get the average value.
 func avg()
-    var values = []
-    for item : items
-        ? !Standard.is_null(item)
-            values.Add(item)
+    var collection = collect(items).filter() // TODO: Helpers.data_get()
 
-    var count = values.Count()
+    var count = collection.count()
     ? count
-        return EnumeratesValues.sum(values) / count
+        return EnumeratesValues.sum(collection.all()) / count
 
 // Get the median.
 func median()
-    var values = []
-    for item : items
-        ? !Standard.is_null(item)
-            values.Add(item)
-    values.Sort()
+    var values = collect(items).filter().sort().values()
 
-    var count = values.Count()
+    var count = values.count()
 
     ? count = 0
         return null
@@ -53,7 +46,7 @@ func median()
     ? count % 2
         return middle
 
-    return collect([values[middle - 1], values[middle]]).avg()
+    return collect([values.get(middle - 1), values.get(middle)]).avg()
 
 // Get the mode.
 func mode()
@@ -61,33 +54,48 @@ func mode()
         return null
 
     var counts = []
-    var unique = unique()
-    for count : unique
+    var collection = unique()
+    for each = 0 .. collection.count() - 1
         counts.Add(0)
 
     for item : items
-        var position = unique.IndexOf(item)
-        counts.Emplace(position, counts[position] + 1)
+        var position = collection.search(item)
+        ? position
+            counts.Emplace(position, counts[position] + 1)
 
-    var highestValue = Standard.array_values(counts)
-    highestValue.Sort()
+    var highestValue = Standard.array_values(counts).Sort()
     highestValue = highestValue[highestValue.Count() - 1] // func last
 
     var sorted = []
 
-    for item : unique
-        var position = unique.IndexOf(item)
-        ? counts[position] = highestValue
-            sorted.Add(item)
+    for item : collection.all()
+        var position = collection.search(item)
+        ? position
+            ? counts[position] = highestValue
+                sorted.Add(item)
 
-    return sorted.Sort()
+    return sorted.Sort()[0]
 
+func get(position)
+    ? Standard.array_key_exists(position, items)
+        return items[position]
+
+func search(value)
+    return Standard.array_search(value, items)
+
+func sort()
+    return collect(items.Sort())
+
+func filter()
+    return collect(Standard.array_filter(items))
+
+// Return only unique items from the collection array.
 func unique()
-    var unique = []
-    for item : items
-        ? !unique.Contains(item)
-            unique.Add(item)
-    return unique
+    return collect(Standard.array_unique(items)).sort()
+
+// Reset the keys on the underlying array.
+func values()
+    return collect(Standard.array_values(items))
 
 // Count the number of items in the collection.
 func count()
