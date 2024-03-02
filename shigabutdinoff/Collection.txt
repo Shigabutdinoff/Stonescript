@@ -60,6 +60,41 @@ func mode()
     ? count() = 0
         return null
 
+    var counts = []
+    var unique = unique()
+    for count : unique
+        counts.Add(0)
+
+    for item : items
+        var position = unique.IndexOf(item)
+        counts.Emplace(position, counts[position] + 1)
+
+    var highestValue = array_values(counts)
+    highestValue.Sort()
+    highestValue = highestValue[highestValue.Count() - 1] // func last
+
+    var sorted = []
+
+    for item : unique
+        var position = unique.IndexOf(item)
+        ? counts[position] = highestValue
+            sorted.Add(item)
+
+    return sorted.Sort()
+
+func array_values(values)
+    var array = []
+    for value : values
+        array.Add(value)
+    return array
+
+func unique()
+    var unique = []
+    for item : items
+        ? !unique.Contains(item)
+            unique.Add(item)
+    return unique
+
 // Count the number of items in the collection.
 func count()
     return items.Count()
