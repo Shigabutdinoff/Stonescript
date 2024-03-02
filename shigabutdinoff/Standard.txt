@@ -20,7 +20,7 @@ func array_values(array)
     return values
 
 func array_filter(array)
-    values = []
+    var values = []
     for item : array
         ? item
             values.Add(item)
