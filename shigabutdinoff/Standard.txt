@@ -25,3 +25,6 @@ func array_filter(array)
         ? item
             values.Add(item)
     return values
+
+func array_key_exists(position, array)
+    return position < array.Count()
