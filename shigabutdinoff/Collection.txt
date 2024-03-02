@@ -60,8 +60,7 @@ func mode()
 
     for item : items
         var position = collection.search(item)
-        ? position
-            counts.put(position, counts.get(position) + 1)
+        counts.put(position, counts.get(position) + 1)
 
     var highestValue = Standard.array_values(counts.all()).Sort()
     highestValue = highestValue[highestValue.Count() - 1] // func last
@@ -70,9 +69,8 @@ func mode()
 
     for item : collection.all()
         var position = collection.search(item)
-        ? position
-            ? counts.get(position) = highestValue
-                sorted.Add(item)
+        ? counts.get(position) = highestValue
+            sorted.Add(item)
 
     return sorted.Sort()[0]
 
