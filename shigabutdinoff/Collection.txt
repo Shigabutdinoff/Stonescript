@@ -2,8 +2,8 @@
 // by: shigabutdinoff
 
 var Standard = new shigabutdinoff/Standard
-var EnumeratesValues = new shigabutdinoff/EnumeratesValues
 var Helpers = new shigabutdinoff/Helpers
+var EnumeratesValues = new shigabutdinoff/EnumeratesValues
 
 // The items contained in the collection.
 var items = []
@@ -69,7 +69,7 @@ func mode()
         var position = unique.IndexOf(item)
         counts.Emplace(position, counts[position] + 1)
 
-    var highestValue = array_values(counts)
+    var highestValue = Standard.array_values(counts)
     highestValue.Sort()
     highestValue = highestValue[highestValue.Count() - 1] // func last
 
@@ -81,12 +81,6 @@ func mode()
             sorted.Add(item)
 
     return sorted.Sort()
-
-func array_values(values)
-    var array = []
-    for value : values
-        array.Add(value)
-    return array
 
 func unique()
     var unique = []
