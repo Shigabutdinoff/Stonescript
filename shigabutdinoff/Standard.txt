@@ -16,7 +16,7 @@ func range(from, to)
 func array_values(array)
     var values = []
     for item : array
-        values.Add(value)
+        values.Add(item)
     return values
 
 func array_filter(array)
