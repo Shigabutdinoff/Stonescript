@@ -53,32 +53,45 @@ func mode()
     ? count() = 0
         return null
 
-    var counts = collect([])
     var collection = unique()
+
+    var counts = collect([])
+
     for each = 0 .. collection.count() - 1
         counts.items.Add(0)
-
     for item : items
         var position = collection.search(item)
         counts.put(position, counts.get(position) + 1)
 
-    var highestValue = Standard.array_values(counts.all()).Sort()
-    highestValue = highestValue[highestValue.Count() - 1] // func last
+    var sorted = collect([])
 
-    var sorted = []
+    var highestValue = counts.values().sort().last()
 
-    for item : collection.all()
-        var position = collection.search(item)
+    for position = 0 .. collection.count() - 1
         ? counts.get(position) = highestValue
-            sorted.Add(item)
+            sorted.put(null, collection.get(position))
 
-    return sorted.Sort()[0]
+    return sorted.all()
+
+// Remove an item from the collection by key.
+func forget(positions)
+    ? !Standard.is_array(positions)
+        positions = [positions]
+    for position : positions
+        offsetUnset(position)
+
+    return collect(items)
 
 // Get an item from the collection by key.
 func get(position)
     ? Standard.array_key_exists(position, items)
         return items[position]
 
+// Get the last item from the collection.
+func last()
+    return items[count() - 1]
+
+// Put an item in the collection by key.
 func put(position, value)
     offsetSet(position, value)
     return collect(items)
@@ -113,3 +126,7 @@ func offsetSet(position, value)
         items.Add(value)
     :
         items.Emplace(position, value)
+
+// Unset the item at a given offset.
+func offsetUnset(position)
+    items.RemoveAt(position)
